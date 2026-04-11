@@ -323,6 +323,72 @@ Handles data migration between versions with precondition validation, upgrade ta
 
 ---
 
+### `bc-al-bug-fixer`
+
+| Field | Details |
+|---|---|
+| **Skill Name** | `bc-al-bug-fixer` |
+| **Short Description** | Diagnoses and fixes bugs in Business Central AL extensions following a structured triage workflow: symptom classification by layer, root cause mapping, minimal targeted fix, and regression test definition. Maps BC-specific symptoms to their most likely root causes before touching code. |
+| **Target BC Version** _(optional)_ | v28.0 |
+| **Status** | 🟡 Proposed |
+
+#### Author
+
+- **Full Name**: Javier Armesto
+- **GitHub User**: javiarmesto
+- **GitHub Profile**: https://github.com/javiarmesto
+- **LinkedIn Profile**: https://www.linkedin.com/in/javierarmesto
+
+#### Motivation
+
+AL developers spend more time diagnosing than fixing. The AL compiler does not catch runtime bugs like missing CalcFields calls, SetLoadFields truncation, silent event subscriber mismatches, or orphan records after delete. This skill imposes a diagnosis-first discipline with a BC-specific symptom-to-root-cause catalogue covering 7 symptom categories and 28 failure modes.
+
+---
+
+### `bc-al-code-reviewer`
+
+| Field | Details |
+|---|---|
+| **Skill Name** | `bc-al-code-reviewer` |
+| **Short Description** | Reviews Business Central AL extension code against a prioritized convention stack: AppSource validation requirements, CodeCop/PerTenantExtensionCop analyzer rules, alguidelines.dev community standards, and al-copilot-skills catalogue patterns. Audits 5 categories the AL compiler does not catch: naming & structure, performance anti-patterns, extensibility contract, SaaS readiness, and AppSource blockers. |
+| **Target BC Version** _(optional)_ | v28.0 |
+| **Status** | 🟡 Proposed |
+
+#### Author
+
+- **Full Name**: Javier Armesto
+- **GitHub User**: javiarmesto
+- **GitHub Profile**: https://github.com/javiarmesto
+- **LinkedIn Profile**: https://www.linkedin.com/in/javierarmesto
+
+#### Motivation
+
+The AL compiler catches syntax errors but not the mistakes that compile fine and cause AppSource rejection, SaaS failures, or production bugs. No existing skill in the collection covers pre-submission code review or AppSource readiness validation. This skill provides a structured review with severity-classified findings (Blocker / Warning / Suggestion) and a prioritized fix list, explicitly referencing the rule source for every finding.
+
+---
+
+### `bc-al-project-context`
+
+| Field | Details |
+|---|---|
+| **Skill Name** | `bc-al-project-context` |
+| **Short Description** | Maintains persistent project context for BC AL extensions across sessions, developers, and AI agents using two complementary mechanisms: Architecture Decision Records (ADRs) that capture why technical decisions were made, and Session Handoff documents that capture where the project is right now. Generates, updates, and queries both document types stored in .github/decisions/ and .github/context/. |
+| **Target BC Version** _(optional)_ | v28.0 |
+| **Status** | 🟡 Proposed |
+
+#### Author
+
+- **Full Name**: Javier Armesto
+- **GitHub User**: javiarmesto
+- **GitHub Profile**: https://github.com/javiarmesto
+- **LinkedIn Profile**: https://www.linkedin.com/in/javierarmesto
+
+#### Motivation
+
+Context loss is one of the most expensive problems in AL development with AI agents. Decisions made in one session are lost by the next. New developers or agents onboarding to a project have no structured way to understand why things are designed the way they are. This skill brings Architecture Decision Records and structured handoffs to the BC AL ecosystem — a practice common in software engineering but almost nonexistent in BC projects.
+
+---
+
 ## Contribution Workflow
 
 1. **Fork** the repository and create a branch from `main`.
@@ -352,3 +418,6 @@ Handles data migration between versions with precondition validation, upgrade ta
 | `bc-telemetry-generator` | @fernandoartalf | ✅ |
 | `bc-test-codeunit-generator` | @fernandoartalf | ✅ |
 | `bc-upgrade-codeunit-generator` | @fernandoartalf | ✅ |
+| `bc-al-bug-fixer` | @javiarmesto | 🟡 |
+| `bc-al-code-reviewer` | @javiarmesto | 🟡 |
+| `bc-al-project-context` | @javiarmesto | 🟡 |
